@@ -1,0 +1,99 @@
+{% load static %}
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'post/style.css' %}">
+    <title>photo_blog</title>
+  </head>
+  <body>
+
+
+  <!--nav-->
+    <nav class="navbar sticky-top navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}"><h2>Photo_blog</h2></a>
+          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Sezioni</button>
+
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Sezioni</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="p-3 mb-2 bg-dark text-white"><a href="{% url 'chi_sono' %}" class="link-light">Chi sono ?</a></div>
+                <br>
+                <br>
+                <div class="p-3 mb-2 bg-dark text-white"><a href="{% url 'atrezzatura' %}" class="link-light">La mia attrezzatura </a></div>
+                <br>
+                <br>
+                <div class="p-3 mb-2 bg-dark text-white"><a href="{% url 'galleria' %}" class="link-light">galleria</a></div>
+                <br>
+                <br>
+                <div class="p-3 mb-2 bg-dark text-white"><a href="{% url 'allpost' %}" class="link-light">tutti i post</a></div>
+                <br>
+                
+            </div>
+          </div>
+        </div>
+    </nav>
+  <!--nav end-->
+ 
+
+    <!--body-->
+  
+    {% block content %}
+
+    {% endblock content %}
+  <!--body end-->
+
+
+
+    <!--footer-->
+<div>
+    <footer class="small bg-light">
+      <div class="container py-3 py-sm-5">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <h6>info</h6>
+            <ul class="list-unstyled">
+              <li><a href="#">Github</a></li>
+          </div>
+          
+          <div class="col-12 col-sm-6 col-md-3">
+            <h6>Follow us</h6>
+            <ul class="list-unstyled">
+              <li><a href="#">LinkedIn</a></li>
+              
+            </ul>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <address>
+              <strong>Contatami </strong><br />
+              <h5>Andrea picchi</h5>
+              <a href="https://accounts.google.com/AccountChooser/signinchooser?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowName=GlifWebSignIn&flowEntry=AccountChooser"><p><strong>mail:</strong>Andrea.Picchi.contattami@gmail.com</p></a>
+            </address>
+          </div>
+        </div>
+      </div>
+         
+         
+    </footer>
+</div> 
+    <!--footer end-->
+  </body>
+</html>
+
+
+
+
+
+  

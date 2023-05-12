@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <br>
+
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+       <!--all post-->
+      {% for post in posts %}
+        
+        <div class="col">
+          <div class="card">
+            <img src="{{ post.cover.url }}" class="card-img-top" alt="...">
+            <div class="card-body text-light bg-dark d-grid">
+              <h5 class="card-title text-center">{{ post.title}}</h5>
+              <p class="card-text text-center">{{ post.second_title }}</p>
+              <p class="card-text text-center">{{ post.publis }}</p>
+              <a href="{{ post.get_absolute_url }}" class="btn btn-primary text-center">vedi di piu </a>
+            </div>
+          </div>
+        </div>
+        
+    
+        {% endfor %}
+
+        <br>
+        
+        
+        
+    </div>
+    <br>
+    <!-- paginazione -->
+    <div class="container-fluid">
+             
+        {% if posts.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ posts.previous_page_number }}">previous</a>
+        {% endif %}
+    
+            
+            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+            
+    
+        {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}">next</a>
+                <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+        
+    </div>
+</div>
+    
+    
+{% endblock content %}

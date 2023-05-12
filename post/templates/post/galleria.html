@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid">
+    <br>
+
+    <!-- singola immagine -->
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+       
+      {% for Image in images %}
+        
+        <div class="col">
+          <div class="card">
+            <img src="{{Image.img.url}}" class="card-img-top" alt="...">
+            <a href="{{ Image.get_absolute_url }}" class="btn btn-primary text-center">vedi immagine</a>
+            
+          </div>
+        </div>
+    
+        {% endfor %}
+        
+    </div>
+    <br>
+    <!-- paginazione -->
+    <div class="container-fluid">
+             
+        {% if images.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ images.previous_page_number }}">previous</a>
+        {% endif %}
+    
+            
+            Page {{ images.number }} of {{ images.paginator.num_pages }}.
+            
+    
+        {% if images.has_next %}
+                <a href="?page={{ images.next_page_number }}">next</a>
+                <a href="?page={{ images.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+        
+    </div>
+
+</div>
+
+{% endblock content %}

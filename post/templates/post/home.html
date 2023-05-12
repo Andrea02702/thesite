@@ -1,0 +1,38 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <br>
+
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+       <!-- post -->
+      {% for post in posts %}
+        
+        <div class="col">
+          <div class="card">
+            <img src="{{ post.cover.url }}" class="card-img-top" alt="...">
+            <div class="card-body text-light bg-dark d-grid">
+              <h5 class="card-title text-center">{{ post.title}}</h5>
+              <p class="card-text text-center">{{ post.second_title }}</p>
+              <p class="card-text text-center">{{ post.publis }}</p>
+              <a href="{{ post.get_absolute_url }}" class="btn btn-primary text-center">vedi di piu </a>
+            </div>
+          </div>
+        </div>
+    
+        {% endfor %}
+        
+    </div>
+    <br>
+
+</div>
+    
+
+
+
+
+
+{% endblock content %}
